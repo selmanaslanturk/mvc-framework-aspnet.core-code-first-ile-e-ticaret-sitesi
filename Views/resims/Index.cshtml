@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Wep_proje.Models.resim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/admin/_layoutadmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.resimyolu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.baslik)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.resimyolu)*@
+            <img src="~/@item.resimyolu.ToString()" style="width:50px;height:50px;" class="rounded">
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.baslik)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.reim_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.reim_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.reim_id })
+        </td>
+    </tr>
+}
+
+</table>

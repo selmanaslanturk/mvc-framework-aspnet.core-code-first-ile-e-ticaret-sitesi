@@ -1,0 +1,35 @@
+﻿@model Wep_proje.Models.resim
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/admin/_layoutadmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>resim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.resimyolu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.resimyolu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.baslik)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.reim_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

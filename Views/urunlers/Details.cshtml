@@ -1,0 +1,59 @@
+﻿@model Wep_proje.Models.urunler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/admin/_layoutadmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>urunler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.urun_adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urun_adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urun_fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urun_fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urun_adedi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urun_adedi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urun_resmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urun_resmi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urun_acıklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urun_acıklama)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.urun_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

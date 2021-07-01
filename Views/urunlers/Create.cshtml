@@ -1,0 +1,94 @@
+﻿@model Wep_proje.Models.urunler
+    
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/admin/_layoutadmin.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create",
+                            "urunlers",
+                            FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken(){
+
+<div class="form-horizontal">
+    <h4>urunler</h4>
+    <hr />
+  @try { 
+    <div class="col-md-10">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Kategori</span>
+            </div>
+            @Html.DropDownListFor( x => x.Kategori.kategori_id ,(List<SelectListItem>) ViewBag.degerler, new { @class = "form-control", aria_describedby = "ddlKisi" })
+        </div>
+  
+
+
+
+
+    <div class="form-group">
+            @Html.LabelFor(model => model.urun_adi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.urun_adi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.urun_adi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.urun_fiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.urun_fiyat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.urun_fiyat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.urun_adedi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.urun_adedi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.urun_adedi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.urun_acıklama, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.urun_acıklama, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.urun_acıklama, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+                @Html.LabelFor(model => model.urun_resmi, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="input-group" style="padding-left:15px;padding-right:115px">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="file" name="file" class="custom-file-input" id="file"
+                               aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                </div>
+            </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+  }
+  catch { }
+</div> 
+
+
+    }
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
